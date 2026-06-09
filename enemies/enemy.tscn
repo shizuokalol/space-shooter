@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dhggck8765dtp"]
+
+[ext_resource type="Script" uid="uid://5vjckq56f0si" path="res://enemies/enemy.gd" id="1_3t1x0"]
+[ext_resource type="Script" uid="uid://dtnmriqjo7q7n" path="res://components/move_component.gd" id="1_7frlh"]
+[ext_resource type="Script" uid="uid://c405xvvsh7emn" path="res://components/stats_component.gd" id="2_orwns"]
+[ext_resource type="Script" uid="uid://bhiqdwp6w3gvj" path="res://components/scale_component.gd" id="3_orwns"]
+[ext_resource type="Script" uid="uid://dkmq1f66tndwq" path="res://components/flash_component.gd" id="4_07tka"]
+[ext_resource type="Script" uid="uid://d2yu5w2mgceks" path="res://components/shake_component.gd" id="5_3t1x0"]
+
+[node name="Enemy" type="Node2D" unique_id=29718754]
+script = ExtResource("1_3t1x0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1103263160]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=544337575]
+
+[node name="StatsComponent" type="Node" parent="." unique_id=719049710]
+script = ExtResource("2_orwns")
+metadata/_custom_type_script = "uid://c405xvvsh7emn"
+
+[node name="MoveComponent" type="Node" parent="." unique_id=1731071827]
+script = ExtResource("1_7frlh")
+metadata/_custom_type_script = "uid://dtnmriqjo7q7n"
+
+[node name="ScaleComponent" type="Node" parent="." unique_id=377173503]
+script = ExtResource("3_orwns")
+metadata/_custom_type_script = "uid://bhiqdwp6w3gvj"
+
+[node name="FlashComponent" type="Node" parent="." unique_id=677618929]
+script = ExtResource("4_07tka")
+metadata/_custom_type_script = "uid://dkmq1f66tndwq"
+
+[node name="ShakeComponent" type="Node" parent="." unique_id=1872538578]
+script = ExtResource("5_3t1x0")
+metadata/_custom_type_script = "uid://d2yu5w2mgceks"

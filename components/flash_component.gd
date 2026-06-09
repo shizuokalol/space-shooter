@@ -11,7 +11,6 @@ const FLASH_MATERIAL: ShaderMaterial = preload("res://effects/white_flash_materi
 
 # We need to store the original sprite's material so we can reset it after the flash
 var original_sprite_material: Material
-# Create a timer for the flash component to use
 var timer: Timer = Timer.new()
 
 
