@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dtfohg0riadya"]
+
+[ext_resource type="Texture2D" uid="uid://cqawsa7wix2jj" path="res://assets/sprites/space.png" id="1_0h1ho"]
+[ext_resource type="Script" uid="uid://b5851p2cvfveo" path="res://effects/space_background.gd" id="1_5bor5"]
+[ext_resource type="Texture2D" uid="uid://dfxn2dores1na" path="res://assets/sprites/far_stars.png" id="2_5bor5"]
+[ext_resource type="Texture2D" uid="uid://dtwot13qa1nf4" path="res://assets/sprites/close_stars.png" id="3_240k4"]
+
+[node name="SpaceBackground" type="Parallax2D" unique_id=1724865826]
+script = ExtResource("1_5bor5")
+
+[node name="SpaceLayer" type="Parallax2D" parent="." unique_id=1388661559]
+repeat_size = Vector2(0, 240)
+
+[node name="Space" type="TextureRect" parent="SpaceLayer" unique_id=1238076586]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("1_0h1ho")
+stretch_mode = 1
+
+[node name="FarStarsLayer" type="Parallax2D" parent="." unique_id=507654734]
+repeat_size = Vector2(0, 240)
+
+[node name="FarStars" type="TextureRect" parent="FarStarsLayer" unique_id=1581527352]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("2_5bor5")
+stretch_mode = 1
+
+[node name="CloseStarsLayer" type="Parallax2D" parent="." unique_id=1118112337]
+repeat_size = Vector2(0, 240)
+
+[node name="CloseStars" type="TextureRect" parent="CloseStarsLayer" unique_id=329313547]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("3_240k4")
+stretch_mode = 1

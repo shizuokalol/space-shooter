@@ -120,7 +120,6 @@ position = Vector2(0, 16)
 sprite_frames = SubResource("SpriteFrames_1soxd")
 animation = &"center"
 autoplay = "center"
-frame_progress = 0.63381094
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Anchor" unique_id=644276708]
 sprite_frames = SubResource("SpriteFrames_6u6rn")
