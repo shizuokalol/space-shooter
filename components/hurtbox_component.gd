@@ -1,8 +1,8 @@
-# Give the component a class name so it can be instanced as a custom node
 class_name HurtboxComponent
 extends Area2D
 
 # Create a signal for when this hurtbox is hit by a hitbox
+@warning_ignore("unused_signal")
 signal hurt(hitbox)
 
 # Create the is_invincible boolean

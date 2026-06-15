@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://5vjckq56f0si" path="res://enemies/enemy.gd" id="1_3t1x0"]
 [ext_resource type="Script" uid="uid://dtnmriqjo7q7n" path="res://components/move_component.gd" id="1_7frlh"]
+[ext_resource type="Script" uid="uid://c5ewb1wgs374w" path="res://components/hurtbox_component.gd" id="2_4w5fm"]
 [ext_resource type="Script" uid="uid://c405xvvsh7emn" path="res://components/stats_component.gd" id="2_orwns"]
 [ext_resource type="Script" uid="uid://bhiqdwp6w3gvj" path="res://components/scale_component.gd" id="3_orwns"]
+[ext_resource type="Script" uid="uid://dlxttj6wqnvd8" path="res://components/hitbox_component.gd" id="3_uba7a"]
 [ext_resource type="Script" uid="uid://dkmq1f66tndwq" path="res://components/flash_component.gd" id="4_07tka"]
 [ext_resource type="Script" uid="uid://d2yu5w2mgceks" path="res://components/shake_component.gd" id="5_3t1x0"]
 
@@ -13,6 +15,17 @@ script = ExtResource("1_3t1x0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1103263160]
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=544337575]
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=855379052]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_4w5fm")
+metadata/_custom_type_script = "uid://c5ewb1wgs374w"
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=1921523173]
+collision_layer = 0
+script = ExtResource("3_uba7a")
+metadata/_custom_type_script = "uid://dlxttj6wqnvd8"
 
 [node name="StatsComponent" type="Node" parent="." unique_id=719049710]
 script = ExtResource("2_orwns")

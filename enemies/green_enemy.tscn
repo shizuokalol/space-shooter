@@ -32,6 +32,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0nf3"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rcqd"]
+radius = 6.0
+
 [node name="GreenEnemy" unique_id=29718754 instance=ExtResource("1_xixw3")]
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1103263160]
@@ -39,8 +45,14 @@ sprite_frames = SubResource("SpriteFrames_xixw3")
 animation = &"move"
 autoplay = "move"
 
-[node name="StatsComponent" parent="." index="2" unique_id=719049710]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" parent_id_path=PackedInt32Array(855379052) index="0" unique_id=1059962331]
+shape = SubResource("CircleShape2D_b0nf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" parent_id_path=PackedInt32Array(1921523173) index="0" unique_id=298056398]
+shape = SubResource("CircleShape2D_6rcqd")
+
+[node name="StatsComponent" parent="." index="4" unique_id=719049710]
 health = 3
 
-[node name="MoveComponent" parent="." index="3" unique_id=1731071827]
+[node name="MoveComponent" parent="." index="5" unique_id=1731071827]
 velocity = Vector2(0, 40)
