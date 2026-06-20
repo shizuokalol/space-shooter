@@ -7,8 +7,11 @@
 [ext_resource type="Script" uid="uid://bhiqdwp6w3gvj" path="res://components/scale_component.gd" id="3_orwns"]
 [ext_resource type="Script" uid="uid://dlxttj6wqnvd8" path="res://components/hitbox_component.gd" id="3_uba7a"]
 [ext_resource type="Script" uid="uid://dkmq1f66tndwq" path="res://components/flash_component.gd" id="4_07tka"]
+[ext_resource type="Script" uid="uid://b00v3pl1n10ry" path="res://components/spawner_component.gd" id="4_g67el"]
 [ext_resource type="Script" uid="uid://d2yu5w2mgceks" path="res://components/shake_component.gd" id="5_3t1x0"]
+[ext_resource type="PackedScene" uid="uid://cg8qrfigv3663" path="res://effects/explosion_effect.tscn" id="5_ccbdt"]
 [ext_resource type="Script" uid="uid://b77aww2wpfu2v" path="res://components/hurt_component.gd" id="9_uba7a"]
+[ext_resource type="Script" uid="uid://ckmc7f80yptg7" path="res://components/destroyed_component.gd" id="12_ccbdt"]
 
 [node name="Enemy" type="Node2D" unique_id=29718754]
 script = ExtResource("1_3t1x0")
@@ -27,6 +30,11 @@ metadata/_custom_type_script = "uid://c5ewb1wgs374w"
 collision_layer = 0
 script = ExtResource("3_uba7a")
 metadata/_custom_type_script = "uid://dlxttj6wqnvd8"
+
+[node name="SpawnerComponent" type="Node2D" parent="." unique_id=228977917]
+script = ExtResource("4_g67el")
+scene = ExtResource("5_ccbdt")
+metadata/_custom_type_script = "uid://b00v3pl1n10ry"
 
 [node name="StatsComponent" type="Node" parent="." unique_id=719049710]
 script = ExtResource("2_orwns")
@@ -57,3 +65,10 @@ script = ExtResource("9_uba7a")
 stats_component = NodePath("../StatsComponent")
 hurtbox_component = NodePath("../HurtboxComponent")
 metadata/_custom_type_script = "uid://b77aww2wpfu2v"
+
+[node name="DestroyedComponent" type="Node" parent="." unique_id=1401920064 node_paths=PackedStringArray("actor", "stats_component", "destroy_effect_spawner_component")]
+script = ExtResource("12_ccbdt")
+actor = NodePath("..")
+stats_component = NodePath("../StatsComponent")
+destroy_effect_spawner_component = NodePath("../SpawnerComponent")
+metadata/_custom_type_script = "uid://ckmc7f80yptg7"

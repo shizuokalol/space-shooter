@@ -8,6 +8,7 @@ extends Node2D
 @onready var shake_component: ShakeComponent = $ShakeComponent
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
+@onready var destroyed_component: DestroyedComponent = $DestroyedComponent
 
 
 func _ready() -> void:
@@ -19,3 +20,4 @@ func _ready() -> void:
 			shake_component.tween_shake()
 	)
 	stats_component.no_health.connect(queue_free)
+	hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
