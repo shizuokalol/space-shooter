@@ -4,7 +4,7 @@ extends Area2D
 # Create a signal for when the hitbox hits a hurtbox
 signal hit_hurtbox(hurtbox)
 
-@export var damage = 1.0
+@export var damage: int = 1
 
 
 func _ready():
