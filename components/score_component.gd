@@ -1,10 +1,7 @@
-# Give the component a class name so it can be instanced as a custom node
 class_name ScoreComponent
 extends Node
 
-# Export the game stats so we can manipulate the game score
 @export var game_stats: GameStats
-# Export the amount the score should be adjusted
 @export var adjust_amount = 5
 
 
