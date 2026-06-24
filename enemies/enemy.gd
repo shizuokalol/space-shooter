@@ -11,6 +11,7 @@ extends Node2D
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
 @onready var score_component: ScoreComponent = $ScoreComponent
+@onready var audio_stream_player: VariablePitchAudioStreamPlayer = $VariablePitchAudioStreamPlayer
 
 
 func _ready() -> void:
@@ -23,6 +24,7 @@ func _ready() -> void:
 
 	hurtbox_component.hurt.connect(
 		func(_hitbox: HitboxComponent):
+			audio_stream_player.play_with_variance()
 			scale_component.tween_scale()
 			flash_component.flash()
 			shake_component.tween_shake()
