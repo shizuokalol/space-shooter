@@ -13,4 +13,4 @@ A 2D arcade space-shooter game built using [Godot](https://godotengine.org/). Th
 This project is fully based on tutorial series by [Heartbeast](https://www.youtube.com/@uheartbeast). Consider giving positive feedback on his channel.
 - Sprites were done by [Grafxkid](https://opengameart.org/content/arcade-space-shooter-game-assets) and are under a CC0 license.
 - The font was done by [Kenney](https://kenney.nl/assets/kenney-fonts) and is under a CC0 license.
-- The sound effects were made by [Heartbeast](https://www.youtube.com/@uheartbeast) and are under a CCO license.
+- The sound effects were made by [Heartbeast](https://www.youtube.com/@uheartbeast) and are under a CC0 license.
