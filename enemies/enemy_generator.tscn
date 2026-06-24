@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dm0jb7wkjyf6x" path="res://enemies/enemy_generator.gd" id="1_k80ol"]
 [ext_resource type="Script" uid="uid://b00v3pl1n10ry" path="res://components/spawner_component.gd" id="1_p85au"]
-[ext_resource type="PackedScene" uid="uid://bdfq27jap1m53" path="res://enemies/yellow_enemy.tscn" id="2_d5nw7"]
 
 [node name="EnemyGenerator" type="Node2D" unique_id=642784502]
 script = ExtResource("1_k80ol")
-yellow_enemy_scene = ExtResource("2_d5nw7")
 
 [node name="SpawnerComponent" type="Node2D" parent="." unique_id=1988356883]
 script = ExtResource("1_p85au")
@@ -17,5 +15,9 @@ wait_time = 2.0
 autostart = true
 
 [node name="YellowEnemySpawnTimer" type="Timer" parent="." unique_id=396298886]
-wait_time = 5.0
+wait_time = 4.0
+autostart = true
+
+[node name="PinkEnemySpawnTimer" type="Timer" parent="." unique_id=2110220434]
+wait_time = 10.0
 autostart = true

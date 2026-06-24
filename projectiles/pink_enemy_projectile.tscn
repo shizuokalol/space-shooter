@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://douakl78pbxqj"]
+
+[ext_resource type="Script" uid="uid://b7ep7c2mm4eyb" path="res://projectiles/pink_enemy_projectile.gd" id="1_7ytmt"]
+[ext_resource type="Texture2D" uid="uid://cvbyoeomf7owf" path="res://assets/sprites/pink_enemy_projectile.png" id="1_fwfae"]
+[ext_resource type="Script" uid="uid://dlxttj6wqnvd8" path="res://components/hitbox_component.gd" id="2_7ytmt"]
+[ext_resource type="Script" uid="uid://dtnmriqjo7q7n" path="res://components/move_component.gd" id="3_04bmb"]
+[ext_resource type="Script" uid="uid://bhiqdwp6w3gvj" path="res://components/scale_component.gd" id="4_defgk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arb35"]
+atlas = ExtResource("1_fwfae")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfe2q"]
+atlas = ExtResource("1_fwfae")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lwwl"]
+atlas = ExtResource("1_fwfae")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wy20"]
+atlas = ExtResource("1_fwfae")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_go1vp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arb35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfe2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lwwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wy20")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_go1vp"]
+radius = 3.0
+
+[sub_resource type="Animation" id="Animation_aarhx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1eqe5"]
+resource_name = "oscillate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4, 0), Vector2(4, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cd7j"]
+_data = {
+&"RESET": SubResource("Animation_aarhx"),
+&"oscillate": SubResource("Animation_1eqe5")
+}
+
+[node name="PinkEnemyProjectile" type="Node2D" unique_id=375946988]
+script = ExtResource("1_7ytmt")
+
+[node name="Anchor" type="Node2D" parent="." unique_id=1134507422]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Anchor" unique_id=1602051678]
+sprite_frames = SubResource("SpriteFrames_go1vp")
+autoplay = "default"
+
+[node name="HitboxComponent" type="Area2D" parent="Anchor" unique_id=396221754]
+collision_layer = 0
+script = ExtResource("2_7ytmt")
+metadata/_custom_type_script = "uid://dlxttj6wqnvd8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/HitboxComponent" unique_id=1129560860]
+shape = SubResource("CircleShape2D_go1vp")
+
+[node name="MoveComponent" type="Node" parent="." unique_id=705584091 node_paths=PackedStringArray("actor")]
+script = ExtResource("3_04bmb")
+actor = NodePath("..")
+velocity = Vector2(0, 30)
+metadata/_custom_type_script = "uid://dtnmriqjo7q7n"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2094823137]
+rect = Rect2(-4, -4, 8, 8)
+
+[node name="ScaleComponent" type="Node" parent="." unique_id=1342743513 node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_defgk")
+sprite = NodePath("../Anchor/AnimatedSprite2D")
+scale_amount = Vector2(2, 2)
+scale_duration = 1.0
+metadata/_custom_type_script = "uid://bhiqdwp6w3gvj"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1272186456]
+libraries/ = SubResource("AnimationLibrary_2cd7j")
+autoplay = &"oscillate"
